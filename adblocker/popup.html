@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #1b1f24;
+        --muted: #667085;
+        --line: #e4e7ec;
+        --accent: #d92d20;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #1b1f24;
+          --fg: #f2f4f7;
+          --muted: #98a2b3;
+          --line: #344054;
+          --accent: #f97066;
+        }
+      }
+      body {
+        margin: 0;
+        min-width: 260px;
+        padding: 14px 16px;
+        background: var(--bg);
+        color: var(--fg);
+        font: 14px/1.4 system-ui, sans-serif;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 15px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 0;
+        border-top: 1px solid var(--line);
+      }
+      .row small {
+        display: block;
+        color: var(--muted);
+        word-break: break-all;
+      }
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--accent);
+      }
+      #status {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Ad Blocker</h1>
+
+    <label class="row">
+      <span>Blocking on<small>All websites</small></span>
+      <input type="checkbox" id="enabled" />
+    </label>
+
+    <label class="row" id="siteRow">
+      <span>Block on this site<small id="host"></small></span>
+      <input type="checkbox" id="site" />
+    </label>
+
+    <p id="status"></p>
+    <script src="popup.js"></script>
+  </body>
+</html>
