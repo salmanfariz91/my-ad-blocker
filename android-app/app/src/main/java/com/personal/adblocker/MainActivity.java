@@ -12,6 +12,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -27,6 +29,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
     private static final int REQUEST_VPN = 1;
+    private static final int MENU_LICENCE = 1;
     private static final String BLOCKED_PREFIX = "BLOCKED  ";
 
     private TextView status;
@@ -109,6 +112,21 @@ public class MainActivity extends Activity {
 
         if (AdVpnService.blockList == null) reloadListInBackground(null);
         UpdateJobService.schedule(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE, MENU_LICENCE, Menu.NONE, "Licence and credits");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == MENU_LICENCE) {
+            startActivity(new Intent(this, LicenceActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
