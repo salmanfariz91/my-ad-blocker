@@ -68,6 +68,12 @@ powershell -ExecutionPolicy Bypass -File .\tools\update-lists.ps1
 Open `android-app/` in Android Studio and run **Build > Build APK(s)**. It uses Java only and
 has no library dependencies.
 
+## Licence
+
+My Ad Blocker is free software, released under the
+[GNU General Public License v3.0](LICENSE). You may use, change and share it, as long as
+what you share stays under the same licence.
+
 ## Block list credits
 
 The block lists are made by other people and are used under their own licences:
